@@ -30,24 +30,37 @@ You need to run database migrations in db/migrate to prepare your local database
 Regarding credentials management, you can edit the credentials.yml file with the following command: EDITOR=vim bundle exec rails credentials:edit
 
 The credentials.yml file should look like the following:
-> # aws:
-> # access key_id: 123
-> # secret_access_key: 345
+> \# aws:
+>
+> \# access key_id: 123
+>
+> \# secret_access_key: 345
 >
 > production:
+>
 >        GOOGLE_CLIENT_ID: <id>.apps.googleusercontent.com
+>
 >        GOOGLE_CLIENT_SECRET: <secret>
+>
 >        GOOGLE_API_KEY: <key>
+>
 >        GITHUB_CLIENT_ID: <id>
+>
 >        GITHUB CLIENT SECRET: <key>
+>
 > development:
+>
 >        GOOGLE_CLIENT_ID: <id>
+>
 >        GOOGLE_CLIENT_SECRET: <secret>  
+>
 >        GOOGLE_API_KEY: <key>
+>
 >        GITHUB_CLIENT_ID: <id>
+>
 >	GITHUB_CLIENT_SECRET: <secret>
 >
-> # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+> \# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
 > secret_key_base: <secret>
 
 GitHub does not version the master key. To use the current version, use the existing credentials.yml.enc and create master.key in the config directory with the following value: a9d421bbdb9dede5b22e245396349907
