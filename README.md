@@ -25,9 +25,12 @@ You will need to run this in every terminal where you're using node.
 
 You need to run database migrations in db/migrate to prepare your local database to store and serve data, and add the seed data to it:
 > bundle exec rails db:migrate
+
 > bundle exec rails db:seed
 
-Regarding credentials management, you can edit the credentials.yml file with the following command: EDITOR=vim bundle exec rails credentials:edit
+Regarding credentials management, you can edit the credentials.yml file with the following command: 
+
+> EDITOR=vim bundle exec rails credentials:edit
 
 The credentials.yml file should look like the following:
 > \# aws:
@@ -63,7 +66,9 @@ The credentials.yml file should look like the following:
 > \# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
 > secret_key_base: <secret>
 
-GitHub does not version the master key. To use the current version, use the existing credentials.yml.enc and create master.key in the config directory with the following value: a9d421bbdb9dede5b22e245396349907
+GitHub does not version the master key. To use the current version, use the existing credentials.yml.enc and create master.key in the config directory with the following value: 
+
+> a9d421bbdb9dede5b22e245396349907
 
 To verify the current encrypted credentials, config/credentials.yml.enc should start with “uA4Knd” and end with “8ze16g==“. 
 
