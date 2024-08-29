@@ -1,0 +1,18 @@
+.row.mt-2
+    .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
+        %h1.text-center Edit news article
+
+    .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
+        = form_tag search_my_news_item_path, method: :get, id: 'search-my_news_items-form' do
+            .form-group.row
+                .col-sm-2
+                    = label :representative_id, :representative_id, 'Representative', class: 'col-form-label', id: 'representative-field'
+                .col-sm-10
+                    = select_tag :representative_id, options_for_select(@representatives_list, params[:representative_id]), include_blank: true, class: 'form-control'
+            .form-group.row
+                .col-sm-2
+                    = label :issue, 'Issue', class: 'col-form-label', id: 'issue-field'
+                .col-sm-10
+                    = select_tag :issue, options_for_select(["Free Speech", "Immigration", "Terrorism", "Social Security and Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment", "Climate Change", "Homelessness", "Racism", "Tax Reform", "Net Neutrality", "Religious Freedom", "Border Security", "Minimum Wage", "Equal Pay"], params[:issue]), include_blank: true, class: 'form-control'
+            .actions
+                = submit_tag 'Search', class: 'btn btn-primary'

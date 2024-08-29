@@ -1,0 +1,26 @@
+.container-fluid
+  .row
+    .col-md-8.offset-md-2
+      %h1.mt-4 Representatives for #{@address}
+      
+      - if @representatives.empty?
+        %p.alert.alert-info No representatives found for this address.
+      - else
+        .table-responsive-md.pt-5
+          %table.table.table-striped.table-hover#events
+            %caption Table of Representatives
+            %thead.thead-dark
+              %tr
+                %th Name
+                %th Office
+                %th Links
+            %tbody
+              - @representatives.each do |rep|
+                %tr
+                  %td= link_to rep.name, representative_path(rep)
+                  %td= rep.title
+                  %td
+                    = link_to representative_news_items_path(rep.id), class: 'btn btn-primary' do
+                      %i.fas.fa-newspaper
+                      News Articles
+      = link_to 'Back to Map', root_path, class: 'btn btn-secondary mt-3'

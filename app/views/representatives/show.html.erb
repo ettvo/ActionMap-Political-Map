@@ -1,0 +1,20 @@
+<h1><%= @representative.name %></h1>
+
+<div class="card">
+  <div class="card-body">
+    <% if @representative.photo_url.present? %>
+      <%= image_tag @representative.photo_url, class: 'img-fluid mb-3', alt: @representative.name %>
+    <% end %>
+    <h5 class="card-title"><%= @representative.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @representative.party %></h6>
+    <p class="card-text">
+      <strong>OCD ID:</strong> <%= @representative.ocdid %><br>
+      <strong>Address:</strong><br>
+      <%= @representative.street %><br>
+      <%= "#{@representative.city}, #{@representative.state} #{@representative.zip}" %>
+      <%= link_to 'Back to Search', search_representatives_path, class: 'btn btn-primary mt-3' %>
+    </p>
+  </div>
+</div>
+
+

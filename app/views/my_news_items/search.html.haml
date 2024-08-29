@@ -1,0 +1,39 @@
+.row.mt-2
+    .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
+        %h1.text-center Edit News Item
+
+.col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
+    = form_tag save_my_news_item_path, method: :post, id: 'select-top_5-form' do
+        .form-group.row
+            .col-sm-2
+                = label :representative_id, :representative_id, 'Representative', class: 'col-form-label', id: 'representative-field'
+            .col-sm-10
+                = select_tag :representative_id, options_for_select([[@representative.name, @representative.id]]), class: 'form-control'
+        .form-group.row
+            .col-sm-2
+                = label :issue, 'Issue', class: 'col-form-label', id: 'issue-field'
+            .col-sm-10
+                = select_tag :issue, options_for_select([[@issue, @issue]]), class: 'form-control'
+        .form-group
+            %ul
+            - @top_5_news_items.each do |entry|
+                %li
+                    = radio_button_tag 'Article', entry.link, false, id: entry
+                    = label_tag entry do
+                        %span.text Title:
+                        %p.text= entry.title
+                        %span.text Link: 
+                        %p.text= entry.link
+                        %span.text Description: 
+                        %p.text= entry.description
+        .form-group
+            = label :rating, 'Rating:'
+            = select_tag :rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control'
+        .actions
+            = submit_tag 'Save', class: 'btn btn-primary'
+
+    
+
+    
+
+        
